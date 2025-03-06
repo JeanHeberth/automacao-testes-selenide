@@ -19,17 +19,20 @@ pipeline {
             }
         }
 
-        stage('Executar Testes') {
-            steps {
-                sh './gradlew test -Dbrowser=$BROWSER -Dtest.url=$TEST_URL'
-            }
-        }
-
-        stage('Publicar Relatórios') {
-            steps {
-                junit '**/build/test-results/test/*.xml'
-            }
-        }
+        stages {
+               stage('Executar Testes') {
+                   steps {
+                       sh './gradlew clean test'
+                   }
+               }
+               stage('Gerar Relatório') {
+                   steps {
+                       allure([
+                           results: [[path: 'build/allure-results']]
+                       ])
+                   }
+               }
+           }
     }
 
     post {
