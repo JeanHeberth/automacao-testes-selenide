@@ -15,7 +15,7 @@ public class BrowserConfig {
     private static void configSelenide() {
         ChromeOptions options = new ChromeOptions();
         Configuration.remote = "http://localhost:4444"; // Configuração para rodar no Selenium Grid
-        Configuration.browser = System.getProperty("browser", "firefox"); // Define navegador dinamicamente
+        Configuration.browser = System.getProperty("browser", "chrome"); // Define navegador dinamicamente
         Configuration.browserSize = "1920x1080"; // Definir o tamanho da tela
         options.addArguments("--headless=new");
         webdriverLogsEnabled = true;
