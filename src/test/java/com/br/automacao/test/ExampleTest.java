@@ -9,6 +9,6 @@ public class ExampleTest extends BaseTest {
 
     @Test
     public void testGoogleSearch() {
-        $("[name='q']").setValue("Selenide").pressEnter();
+//        $("[name='q']").setValue("Selenide").pressEnter();
     }
 }

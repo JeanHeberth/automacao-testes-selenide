@@ -20,6 +20,7 @@ public class BrowserConfig {
         options.addArguments("--headless=new");
         webdriverLogsEnabled = true;
         remoteConnectionTimeout = 30000;
+        Configuration.browserCapabilities = options;
 
     }
 
@@ -28,7 +29,7 @@ public class BrowserConfig {
         clearBrowserCookies();
         WebDriverRunner.getAndCheckWebDriver();
         getWebDriver().manage().window().maximize();
-        open("https://www.google.com.br/");
+        open("https://www.demoblaze.com/");
     }
 
     public static void teardown() {
