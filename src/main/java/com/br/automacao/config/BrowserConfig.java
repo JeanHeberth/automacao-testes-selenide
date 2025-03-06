@@ -15,6 +15,7 @@ public class BrowserConfig {
         Configuration.remote = "http://localhost:4444"; // Configuração para rodar no Selenium Grid
         Configuration.browser = System.getProperty("browser", "firefox"); // Define navegador dinamicamente
         Configuration.browserSize = "1920x1080"; // Definir o tamanho da tela
+        Configuration.headless = true;
         webdriverLogsEnabled = true;
         remoteConnectionTimeout = 30000;
 
