@@ -27,7 +27,7 @@ pipeline {
 
         stage('Gerar Relatório Allure') {
             steps {
-                sh './gradlew allureAggregate'  // Gera o relatório corretamente
+                sh './gradlew allureReport'  // Gera o relatório corretamente
             }
         }
 
