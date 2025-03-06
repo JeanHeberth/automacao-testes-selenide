@@ -24,19 +24,20 @@ pipeline {
                  sh './gradlew clean test'
             }
         }
+         stage('Generate Allure Report') {
+                    steps {
+                        sh './gradlew allureReport'  // Gera os relatórios do Allure
+                    }
+                }
 
         stage('Publicar Relatórios') {
             steps {
                 allure([
-                   results: [[path: 'build/allure-results']]
+                   results: [[path: 'build/allure-results']],  // Diretório do relatório
+                   reportBuildPolicy: ALWAYS
                ])
             }
         }
     }
 
-    post {
-        always {
-            archiveArtifacts artifacts: '**/build/reports/tests/test/**', fingerprint: true
-        }
-    }
 }
