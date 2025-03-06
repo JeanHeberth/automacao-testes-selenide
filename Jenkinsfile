@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout Código') {
             steps {
-                git 'https://github.com/JeanHeberth/automacao-testes-selenide.gi'
+                git 'https://github.com/JeanHeberth/automacao-testes-selenide.git'
             }
         }
 
