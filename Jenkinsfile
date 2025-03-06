@@ -35,6 +35,7 @@ pipeline {
             steps {
                 allure([
                    results: [[path: 'build/allure-results']],  // Diretório correto do relatório
+                    commandline: 'ALLURE_REPORT',
                    reportBuildPolicy: 'ALWAYS'
                ])
             }
