@@ -23,14 +23,10 @@ dependencies {
 }
 
 allure {
-    report {
-        version.set("2.25.0")
-    }
-    adapter {
-        aspectjWeaver.set(true)
-        frameworks {
-            testng.enabled.set(true)  // Se estiver usando TestNG
-        }
+    version = "2.33.0" // Sempre use a versão mais recente estável
+    autoconfigure = true
+    useTestNG {
+        version = "2.33.0"
     }
 }
 
