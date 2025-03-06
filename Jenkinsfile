@@ -25,20 +25,6 @@ pipeline {
             }
         }
 
-        stage('Gerar Relatório Allure') {
-            steps {
-                sh './gradlew allureReport'  // Gera o relatório corretamente
-            }
-        }
-
-        stage('Publicar Relatórios') {
-            steps {
-                allure([
-                   results: [[path: 'build/allure-results']],  // Diretório correto do relatório
-                    commandline: 'ALLURE_REPORT',
-                   reportBuildPolicy: 'ALWAYS'
-               ])
-            }
         }
     }
-}
+
