@@ -13,25 +13,24 @@ repositories {
 }
 
 dependencies {
-
     implementation 'org.slf4j:slf4j-simple:2.0.7'
     testImplementation 'org.testng:testng:7.10.2'
     implementation 'com.codeborne:selenide:7.7.3'
     implementation 'org.assertj:assertj-core:3.24.2'
     implementation 'org.apache.commons:commons-lang3:3.13.0'
 
-    testImplementation 'io.qameta.allure:allure-selenide:2.25.0'
+    // Dependências do Allure
+    testImplementation 'io.qameta.allure:allure-selenide:2.21.0'
     testImplementation 'io.qameta.allure:allure-testng:2.21.0'
+    testImplementation 'io.qameta.allure:allure-junit-platform:2.21.0'
 }
 
 allure {
-    version = "2.33.0" // Sempre use a versão mais recente estável
-    autoconfigure = true
+    version = "2.21.0" // Última versão estável suportada pelo allure-testng
+    aspectjweaver = true
     useTestNG {
-        version = "2.33.0"
-    }
-}
-
+        version = "2.21.0"
+    }}
 
 test {
     useTestNG()

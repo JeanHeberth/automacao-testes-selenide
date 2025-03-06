@@ -13,7 +13,7 @@ pipeline {
             }
         }
 
-        stage('Instalar Dependências') {
+        stage('Baixar Dependências') {
             steps {
                 sh './gradlew dependencies'
             }
@@ -21,23 +21,23 @@ pipeline {
 
         stage('Executar Testes') {
             steps {
-                 sh './gradlew clean test'
+                sh './gradlew clean test'
             }
         }
-         stage('Generate Allure Report') {
-                    steps {
-                        sh './gradlew allureReport'  // Gera os relatórios do Allure
-                    }
-                }
+
+        stage('Gerar Relatório Allure') {
+            steps {
+                sh './gradlew allureAggregate'  // Gera o relatório corretamente
+            }
+        }
 
         stage('Publicar Relatórios') {
             steps {
                 allure([
-                   results: [[path: 'build/allure-results']],  // Diretório do relatório
+                   results: [[path: 'build/allure-results']],  // Diretório correto do relatório
                    reportBuildPolicy: ALWAYS
                ])
             }
         }
     }
-
 }
