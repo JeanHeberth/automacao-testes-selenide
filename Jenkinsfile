@@ -19,20 +19,19 @@ pipeline {
             }
         }
 
-        stages {
-               stage('Executar Testes') {
-                   steps {
-                       sh './gradlew clean test'
-                   }
-               }
-               stage('Gerar Relatório') {
-                   steps {
-                       allure([
-                           results: [[path: 'build/allure-results']]
-                       ])
-                   }
-               }
-           }
+        stage('Executar Testes') {
+            steps {
+                 sh './gradlew clean test'
+            }
+        }
+
+        stage('Publicar Relatórios') {
+            steps {
+                allure([
+                   results: [[path: 'build/allure-results']]
+               ])
+            }
+        }
     }
 
     post {
